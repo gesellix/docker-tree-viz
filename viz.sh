@@ -8,4 +8,9 @@ fi
 COMMAND=$1
 shift
 
-/usr/local/bin/dockviz $COMMAND $@ | dot -Tpng -o /output/$COMMAND.png
+FINAL_COMMAND="/usr/local/bin/dockviz $COMMAND $@"
+if [ "$1" == "-d" -o "$1" == "--dot" ];
+	then FINAL_COMMAND="$FINAL_COMMAND | dot -Tpng -o /output/$COMMAND.png"
+fi
+
+/bin/sh -c "$FINAL_COMMAND"
