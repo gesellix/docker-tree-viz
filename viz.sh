@@ -5,4 +5,4 @@ if [ "$1" == "" -o "$1" == "help" ];
 	exit
 fi
 
-/usr/local/bin/dockviz $1 --dot | dot -Tpng -o /output/$1.png
+/usr/local/bin/dockviz $1 $2 | dot -Tpng -o /output/$1.png
